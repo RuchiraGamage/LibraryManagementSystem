@@ -17,7 +17,7 @@ namespace LibraryData.Models
 
         [Required]
         public Status Status { get; set; }
-
+        //status has given the navigation property to LibraryAsset
         [Required]
         public decimal Cost { get; set; }
 

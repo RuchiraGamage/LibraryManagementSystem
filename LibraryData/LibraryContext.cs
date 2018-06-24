@@ -17,7 +17,7 @@ namespace LibraryData
         public DbSet<Status> Status { get; set; }
         public DbSet<LibraryAsset> LibraryAssets { get; set; }
         public DbSet<Hold> Holds { get; set; }
-
+        //service layer handle all of the interaction with the database
 
     }
 }
