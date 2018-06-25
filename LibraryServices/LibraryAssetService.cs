@@ -52,17 +52,28 @@ namespace LibraryServices
 
         public string getDeweyIndex(int id)
         {
-            throw new NotImplementedException();
+            if (_context.Books.Any(book => book.ID == id))
+            {
+              //  var isbook = _context.LibraryAssets.OfType<Book>().Where(a => a.ID == id).Any();
+                return _context.Books.FirstOrDefault(book => book.ID == id).DeweyIndex;
+                
+            }
+            else return "";
+
         }
 
         public string getISBN(int id)
         {
-            throw new NotImplementedException();
+            if (_context.Books.Any(book => book.ID == id))
+            {
+                return _context.Books.FirstOrDefault(book => book.ID == id).ISBN;
+            }
+            else return "";
         }
 
         public string getTitle(int id)
         {
-            throw new NotImplementedException();
+            return _context.LibraryAssets.FirstOrDefault(a => a.ID == id).Title;
         }
 
         public string getType(int id)
@@ -70,9 +81,10 @@ namespace LibraryServices
             throw new NotImplementedException();
         }
 
-        public string getAuthorOrDirector(int id)
-        {
-            throw new NotImplementedException();
-        }
+     //   public string getAuthorOrDirector(int id)
+     //   {
+      //      var isBook = _context.LibraryAssets.OfType<Book>().Where(asset => asset.ID == id).Any();
+      //      var isVideo = _context.LibraryAssets.OfType<Video>().Where(asset => asset.ID == id).Any();
+      //  }
     }
 }
