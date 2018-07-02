@@ -78,13 +78,20 @@ namespace LibraryServices
 
         public string getType(int id)
         {
-            throw new NotImplementedException();
+            var book = _context.LibraryAssets.OfType<Book>().Where(b => b.ID == id);
+
+            return book.Any() ? "Book" : "Video";
         }
 
-     //   public string getAuthorOrDirector(int id)
-     //   {
-      //      var isBook = _context.LibraryAssets.OfType<Book>().Where(asset => asset.ID == id).Any();
-      //      var isVideo = _context.LibraryAssets.OfType<Video>().Where(asset => asset.ID == id).Any();
-      //  }
+        public string getAuthorOrDirector(int id)
+        {
+            var isBook = _context.LibraryAssets.OfType<Book>().Where(asset => asset.ID == id).Any();
+            var isVideo = _context.LibraryAssets.OfType<Video>().Where(asset => asset.ID == id).Any();
+
+            return isBook ? _context.Books.FirstOrDefault(asset=>asset.ID==id).Author:
+                _context.Videos.FirstOrDefault(asset=>asset.ID==id).Director
+                ?? "unknown";
+            //return b, from a??b when a is not satisfied  
+        }
     }
 }
