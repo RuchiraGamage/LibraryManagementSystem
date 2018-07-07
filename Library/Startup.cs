@@ -24,8 +24,12 @@ namespace Library
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            services.AddSingleton(Configuration);
+           // services.AddScoped<ILibraryAsset,Libraryassetser>
+
             services.AddDbContext<LibraryContext>(options =>
-            options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=Library_Dev;Trusted_Connection=True;MultipleActiveResultSets=true"));
+            options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=Library_Devv;Trusted_Connection=True;MultipleActiveResultSets=true"));
             //above keyword like trusted connections allow windows authentifications to connect to the localhost
 
         }
