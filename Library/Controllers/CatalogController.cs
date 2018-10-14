@@ -25,33 +25,35 @@ namespace Library.Controllers
         }
         //first controllerl action
 
-        public IEnumerable<LibraryCard> index() {
+        /*
 
-            var assetModels = _asset.GetAll();
+    public IEnumerable<LibraryCard> index() {
 
-            var listingResult = assetModels
-                .Select(result => new AssetIndexListingModel {
-                    Id = result.ID,
-                    ImageUrl = result.ImageUrl,
-                    AuthorOrDirector = _asset.getAuthorOrDirector(result.ID),
-                    DeweyCallNumber = _asset.getDeweyIndex(result.ID),
-                    Title = result.Title,
-                    Type = _asset.getType(result.ID)
+        var assetModels = _asset.GetAll();
 
-                 
-                });
-            var model = new AssetIndexModel()
-            {
-                Asset = listingResult
-            };
+        var listingResult = assetModels
+            .Select(result => new AssetIndexListingModel {
+                Id = result.ID,
+                ImageUrl = result.ImageUrl,
+                AuthorOrDirector = _asset.getAuthorOrDirector(result.ID),
+                DeweyCallNumber = _asset.getDeweyIndex(result.ID),
+                Title = result.Title,
+                Type = _asset.getType(result.ID)
 
 
-            return View(model);
+            });
+        var model = new AssetIndexModel()
+        {
+            Asset = listingResult
+        };
 
 
-          //  return _asset.LibraryCards;
-        }
+        return View(model);
 
+
+       // return _asset.LibraryCards;
+    }
+*/
 
     }
 }
