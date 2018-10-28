@@ -7,12 +7,10 @@ namespace LibraryData.Models
 {
     public class Status
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
 
-        [Required]
-        public int Name { get; set; }
+        [Required] public string Name { get; set; }
 
-        [Required]
-        public string Discription { get; set; }
+        [Required] public string Description { get; set; }
     }
 }

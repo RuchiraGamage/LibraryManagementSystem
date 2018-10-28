@@ -5,14 +5,19 @@ using System.Text;
 
 namespace LibraryData.Models
 {
+
     public class Checkouts
     {
         public int ID { get; set; }
 
         [Required]
+        [Display(Name = "Library Asset")]
         public LibraryAsset LibraryAsset { get; set; }
-        public LibraryCard LibraryCard { get; set; }
-        public DateTime Since { get; set; }
-        public DateTime Until { get; set; }
+
+        [Display(Name = "Library Card")] public LibraryCard LibraryCard { get; set; }
+
+        [Display(Name = "Checked Out Since")] public DateTime Since { get; set; }
+
+        [Display(Name = "Checked Out Until")] public DateTime Until { get; set; }
     }
 }

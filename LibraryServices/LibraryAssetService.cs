@@ -42,6 +42,7 @@ namespace LibraryServices
             //we can also write above code refering GetAll()
 
             return GetAll().FirstOrDefault(asset => asset.ID == id);
+            
 
         }
         public LibraryBranch getCurrentLocation(int id)
@@ -69,6 +70,7 @@ namespace LibraryServices
                 return _context.Books.FirstOrDefault(book => book.ID == id).ISBN;
             }
             else return "";
+            
         }
 
         public string getTitle(int id)
@@ -92,6 +94,7 @@ namespace LibraryServices
                 _context.Videos.FirstOrDefault(asset=>asset.ID==id).Director
                 ?? "unknown";
             //return b, from a??b when a is not satisfied  
+            
         }
     }
 }

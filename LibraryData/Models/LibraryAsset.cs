@@ -9,27 +9,16 @@ namespace LibraryData.Models
     {
         public int ID { get; set; }
 
-        [Required]
-        public string Title { get; set; }
+        [Required] public string Title { get; set; }
+        [Required] public int Year { get; set; } // Just store as an int for BC
+        [Required] public Status Status { get; set; }//status has given the navigation property to LibraryAsset
 
         [Required]
-        public int Year { get; set; }//just store int as BC
-
-        [Required]
-        public Status Status { get; set; }
-        //status has given the navigation property to LibraryAsset
-        [Required]
+        [Display(Name = "Cost of Replacement")]
         public decimal Cost { get; set; }
-
         public string ImageUrl { get; set; }
-
         public int NumberOfCopies { get; set; }
-
         public virtual LibraryBranch Location { get; set; }
-
-
-
-
     }
 }
 
