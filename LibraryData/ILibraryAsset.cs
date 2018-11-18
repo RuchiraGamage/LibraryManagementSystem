@@ -8,7 +8,7 @@ namespace LibraryData
     public interface ILibraryAsset
     {    //this is having series of methods requred for servises servises in libreryServises class can impliment this
         IEnumerable<LibraryAsset> GetAll();
-        LibraryAsset GetBuId(int id);
+        LibraryAsset GetById(int id);
         void Add(LibraryAsset newAsset);
         string getAuthorOrDirector(int id);
         string getDeweyIndex(int id);

@@ -48,6 +48,27 @@ namespace Library.Controllers
         }
 
 
+        public IActionResult Detail(int id)
+        {
+            var asset = _asset.GetById(id);
+
+            var model = new AssetDetailModel
+            {
+                AassetId = id,
+                Tittle = asset.Title,
+                Year = asset.Year,
+                Cost = asset.Cost,
+                Status = asset.Status.Name,
+                ImageUrl = asset.ImageUrl,
+                AuthorOrDirector = _asset.getAuthorOrDirector(id),
+                CurrentLocation = _asset.getCurrentLocation(id).Name,
+                DeweyCallNumber = _asset.getDeweyIndex(id),
+                ISBN = _asset.getISBN(id)
+
+            };
+            return View(model);
+        }
+
         /*
 
     public IEnumerable<LibraryCard> index() {

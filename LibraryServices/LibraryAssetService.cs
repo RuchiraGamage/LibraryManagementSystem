@@ -32,7 +32,7 @@ namespace LibraryServices
                 .Include(asset=>asset.Location);
         }
 
-        public LibraryAsset GetBuId(int id)
+        public LibraryAsset GetById(int id)
         {
             // return _context.LibraryAssets
             //      .Include(asset => asset.Status)
@@ -47,7 +47,7 @@ namespace LibraryServices
         }
         public LibraryBranch getCurrentLocation(int id)
         {
-            return GetBuId(id).Location;
+            return GetById(id).Location;
            // return _context.LibraryAssets.FirstOrDefault(asset => asset.ID == id).Location;
         }
 
