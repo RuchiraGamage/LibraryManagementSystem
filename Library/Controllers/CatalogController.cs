@@ -69,35 +69,7 @@ namespace Library.Controllers
             return View(model);
         }
 
-        /*
 
-    public IEnumerable<LibraryCard> index() {
-
-        var assetModels = _asset.GetAll();
-
-        var listingResult = assetModels
-            .Select(result => new AssetIndexListingModel {
-                Id = result.ID,
-                ImageUrl = result.ImageUrl,
-                AuthorOrDirector = _asset.getAuthorOrDirector(result.ID),
-                DeweyCallNumber = _asset.getDeweyIndex(result.ID),
-                Title = result.Title,
-                Type = _asset.getType(result.ID)
-
-
-            });
-        var model = new AssetIndexModel()
-        {
-            Asset = listingResult
-        };
-
-
-        return View(model);
-
-
-       // return _asset.LibraryCards;
-    }
-*/
 
     }
 }
