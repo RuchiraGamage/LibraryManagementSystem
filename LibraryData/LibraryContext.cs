@@ -5,7 +5,7 @@ namespace LibraryData
 {
     public class LibraryContext : DbContext
     {
-    public LibraryContext(DbContextOptions options) : base(options) { }
+        public LibraryContext(DbContextOptions options) : base(options) { }
         //dbcontext use to refer database DBset use to refer a table inside it (some entity) for some crud operations
         public DbSet<Patron> Patrons { get; set; }
         public DbSet<Video> Videos { get; set; }
@@ -22,6 +22,5 @@ namespace LibraryData
 
         //migrate command is     --> add-migration "first migration"
         //commmit to the database---->update-database
-
     }
 }

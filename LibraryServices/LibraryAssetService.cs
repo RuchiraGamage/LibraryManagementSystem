@@ -13,7 +13,8 @@ namespace LibraryServices
         //impliment all the method inherit from interface
 
         private LibraryContext _context;
-        //now we have acces to all the methods in DBContext through context object,can use read,update ,delete..methods to do changes in the DB
+        //now we have acces to all the methods in DBContext through context object,
+        //can use read,update ,delete..methods to do changes in the DB
 
         public LibraryAssetService(LibraryContext context) {
             _context = context;
@@ -93,8 +94,7 @@ namespace LibraryServices
             return isBook ? _context.Books.FirstOrDefault(asset=>asset.ID==id).Author:
                 _context.Videos.FirstOrDefault(asset=>asset.ID==id).Director
                 ?? "unknown";
-            //return b, from a??b when a is not satisfied  
-            
+            //return b, from a??b when a is not satisfied             
         }
     }
 }

@@ -30,6 +30,5 @@ namespace Library.Models.Catalog
     {
         public String PatronName { get; set; }
         public String HoldPlaced { get; set; }
-
     }
 }
