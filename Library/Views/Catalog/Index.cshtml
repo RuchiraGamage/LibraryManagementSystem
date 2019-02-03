@@ -17,20 +17,16 @@
                  @foreach (var Asset in Model.Asset)
                 {
                     <tr class="assetRaw">
-
-
                         <td class="">
                             <a asp-controller="Catalog" asp-action="Detail" asp-route-id="@Asset.Id">
                                 <img src="@Asset.ImageUrl" class="imageCell" />
                             </a>
-
                         </td>
                         <td class="">@Asset.Title</td>
                         <td class="">@Asset.AuthorOrDirector</td>
                         <td class="">@Asset.DeweyCallNumber</td>
                         <td class=""></td>
                     </tr>
-
                 }
             </tbody>
         </table>

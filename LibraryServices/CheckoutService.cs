@@ -49,7 +49,7 @@ namespace LibraryServices
                                              //object to the details of 'LibraryAssest object'
                                              // .Include(h=>h.LibraryCard)//these are navigation property through 'Holds'
                                              //object to the details of 'Library card'
-                .Where(h => h.Id == id);
+                .Where(h => h.LibraryAsset.ID == id);
         }
 
         public Checkouts GetLatestCheckouts(int assetId)
@@ -90,6 +90,7 @@ namespace LibraryServices
             _context.Update(item);
             item.Status = _context.Status
             .FirstOrDefault(a => a.Name == state);
+            _context.SaveChanges();
         }
 
         private void CloseExistingCheckoutHistory(int id, DateTime now)
@@ -115,7 +116,7 @@ namespace LibraryServices
             }
         }
 
-        public void CheckInItem(int assetId, int libraryCardId)
+        public void CheckInItem(int assetId)
         {
             var now =DateTime.Now;
             var item = _context
@@ -206,25 +207,25 @@ namespace LibraryServices
             return now.AddDays(12);
         }
 
-        private bool IsCheckedOut(int assetId)
+        public bool IsCheckedOut(int assetId)
         {
            return _context.Checkouts
                 .Where(h => h.LibraryAsset.ID == assetId)
                 .Any();        
         }
 
-
         public void PlaceHold(int assetId, int LibraryCardId)
         {
             var now = DateTime.Now;
 
             var asset = _context.LibraryAssets
+                .Include(a=>a.Status)
                 .FirstOrDefault(h => h.ID == assetId);
 
             var Librycard = _context.LibraryCards
                 .FirstOrDefault(h => h.Id == LibraryCardId);
 
-            if(asset.Status.Name=="Available")
+             if(asset.Status.Name=="Available")
             {
                 UpdateAsset(assetId, "On Hold");
             }
@@ -239,7 +240,6 @@ namespace LibraryServices
             _context.Add(hold);
             _context.SaveChanges();
         }
-
 
         public string GetCurrentHoldPatronName(int holdId)
         {
@@ -258,17 +258,41 @@ namespace LibraryServices
            
         }
 
-        public DateTime GetCurrentHoldPlaced(int id)
+        public DateTime GetCurrentHoldPlaced(int holdId)
         {
             return _context
                 .Holds
                 .Include(h => h.LibraryAsset)
                 .Include(h => h.LibraryCard)
-                .FirstOrDefault(h => h.Id == id)
+                .FirstOrDefault(h => h.Id == holdId)
                 .HoldPlaced;
-
         }
 
+        public string GetCurrentCheckoutPatron(int assetId)
+        {
+            var checkOut = GetCheckoutByAssetId(assetId);
+            if (checkOut==null)
+            {
+                return "";
+            }
+
+            var cardId = checkOut.LibraryCard.Id;
+            var patron= _context.Patrons
+                .Include(h => h.LibraryCard)
+                .FirstOrDefault(h => h.LibraryCard.Id == cardId);
+
+            return patron.FirstName + " " + patron.LastName;
+                
+        }
+
+        private Checkouts GetCheckoutByAssetId(int assetId)
+        {
+           return _context.Checkouts
+                .Include(h => h.LibraryAsset)
+                .Include(h => h.LibraryCard)
+                .Where(h=>h.LibraryAsset.ID==assetId)
+                .FirstOrDefault();
+        }
     }
 }
 //here has used 'linq' queries to push data to data base and pull back from database

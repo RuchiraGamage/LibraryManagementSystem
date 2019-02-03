@@ -64,3 +64,65 @@
             </div>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <h4>Checkout History</h4>
+            @if (!Model.CheckoutHistory.Any())
+            { 
+                <p>No any checkout histories</p>
+            }
+            else
+            {
+            <table class="table table-bordered table-hover table-condensed">
+                <thead>
+                    <tr>
+                        <th>Date loaned</th>
+                        <th>Date returned</th>
+                        <th>Card Id</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var checkout in Model.CheckoutHistory)
+                    {
+                        <tr>
+                            <td>@checkout.CheckedOut</td>
+                            <td>@checkout.CheckedIn</td>
+                            <td>@checkout.LibraryCard.Id</td>
+                            <td></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            }
+        </div>
+        <div class=" col-lg-6">
+            <h4>Current Holds</h4>
+            @if (!Model.CurrentHolds.Any())
+            {
+                <p>No any current holds</p>
+            }
+            else
+            {
+                <table class="table table-bordered table-hover table-condensed">
+                    <thead>
+                        <tr>
+                            <td>Hold placed</td>
+                            <td>Patron</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var hold in Model.CurrentHolds)
+                        {
+                            <tr>
+                                <td>@hold.HoldPlaced</td>
+                                <td>@hold.PatronName</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+        </div>
+    </div>
+
+

@@ -117,7 +117,7 @@
 }
 
 #catalog {
-    background: url('/images/books.jpg') bottom right 15% no-repeat #555;
+    background: url('/images/Catalog.jpg') bottom right 15% no-repeat #555;
 }
 
 #catalogIndexTable {
@@ -132,8 +132,8 @@
         background-color: #eee;
     }
 
-#patrons {
-    background: url('/images/patron.jpeg') bottom left 15% no-repeat #555;
+#patrons{
+    background: url('/images/Books.jpg') bottom left 15% no-repeat #555;
 }
 
 .branchInfo {
@@ -141,7 +141,7 @@
 }
 
 #branches {
-    background: url('/images/bldg.jpeg') bottom right 15% no-repeat #555;
+    background: url('/images/Catalog.jpg') bottom right 15% no-repeat #555;
 }
 
 #assets {
