@@ -29,16 +29,12 @@ namespace Library
             services.AddSingleton(Configuration);
             services.AddScoped<ILibraryAsset, LibraryAssetService>();//dependancy injecting 
             services.AddScoped<ICheckout, CheckoutService>();//dependancy injecting 
-
+            services.AddScoped<IPatron, PatronService>();//dependancy injecting 
 
             services.AddDbContext<LibraryContext>(options =>
             options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=Library_Devvv;Trusted_Connection=True;MultipleActiveResultSets=true"));
             //options.UseSqlServer(Configuration.GetConnectionString("LibraryConnection")));
-        
-
-
             //above keyword like trusted connections allow windows authentifications to connect to the localhost
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
