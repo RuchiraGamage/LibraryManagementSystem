@@ -10,7 +10,7 @@ namespace LibraryServices
     {
         private LibraryContext _context;
 
-        PatronService(LibraryContext context)
+        public PatronService(LibraryContext context)
         {
             _context = context;
         }
