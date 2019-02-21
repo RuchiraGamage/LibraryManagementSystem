@@ -29,7 +29,8 @@ namespace Library
             services.AddSingleton(Configuration);
             services.AddScoped<ILibraryAsset, LibraryAssetService>();//dependancy injecting 
             services.AddScoped<ICheckout, CheckoutService>();//dependancy injecting 
-            services.AddScoped<IPatron, PatronService>();//dependancy injecting 
+            services.AddScoped<IPatron, PatronService>();//dependancy injecting
+            services.AddScoped<ILibraryBranch, LibraryBranchService>();
 
             services.AddDbContext<LibraryContext>(options =>
             options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=Library_Devvv;Trusted_Connection=True;MultipleActiveResultSets=true"));

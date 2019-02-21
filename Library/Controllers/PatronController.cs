@@ -2,10 +2,8 @@
 using LibraryData;
 using LibraryData.Models;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Library.Controllers
 {
@@ -64,7 +62,6 @@ namespace Library.Controllers
                 MemberSince = patron.LibraryCard.Created,
                 OverDueFees = patron.LibraryCard.Fees,
                 Telephone = patron.Telephone
-
             };
 
             return View(model);

@@ -1,12 +1,12 @@
 ﻿using LibraryData.Models;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace LibraryData
 {
     public interface ILibraryAsset
-    {    //this is having series of methods requred for servises servises in libreryServises class can impliment this
+    {
+        //this is having series of methods requred for servises servises in libreryServises
+        //class can impliment this
         IEnumerable<LibraryAsset> GetAll();
         LibraryAsset GetById(int id);
         void Add(LibraryAsset newAsset);
